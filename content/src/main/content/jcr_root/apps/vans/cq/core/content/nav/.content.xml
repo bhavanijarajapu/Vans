@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
+    jcr:primaryType="nt:unstructured">
+    <commerce jcr:primaryType="nt:unstructured">
+        <vans
+            jcr:mixinTypes="[rep:AccessControllable]"
+            jcr:primaryType="nt:unstructured"
+            jcr:title="Vans"
+            id="cq-commerce-vans">
+            <swatches
+                jcr:description="Manage Vans Swatches."
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Swatches"
+                href="/etc/vans/swatches.html/etc/commerce/products/vans/swatches"
+                id="cq-commerce-vans-swatches"/>
+            <components
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Components"
+                href="/etc/vans/components.html/etc/commerce/products/vans/components"
+                id="cq-commerce-vans-components"/>
+            <models
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Models"
+                href="/etc/vans/models.html/etc/commerce/products/vans/models"
+                id="cq-commerce-vans-models"/>
+        </vans>
+    </commerce>
+</jcr:root>
