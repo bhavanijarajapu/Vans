@@ -1,0 +1,59 @@
+{{!
+
+ ADOBE CONFIDENTIAL
+ __________________
+
+  Copyright 2014 Adobe Systems Incorporated
+  All Rights Reserved.
+
+ NOTICE:  All information contained herein is, and remains
+ the property of Adobe Systems Incorporated and its suppliers,
+ if any.  The intellectual and technical concepts contained
+ herein are proprietary to Adobe Systems Incorporated and its
+ suppliers and are protected by trade secret or copyright law.
+ Dissemination of this information or reproduction of this material
+ is strictly forbidden unless prior written permission is obtained
+ from Adobe Systems Incorporated.
+
+}}
+<div data-component-id="{{id}}" data-scf-component="social/console/components/hbs/createsite">
+    <form action="/content.social.json" method="post" class="coral-Wizard coral-Form coral-Form--vertical" data-init="flexwizard" enctype="multipart/form-data">
+        <nav class="js-coral-Wizard-nav coral-Wizard-nav coral--dark">
+            <ol class="coral-Wizard-steplist">
+                <li class="js-coral-Wizard-steplist-item coral-Wizard-steplist-item">{{i18n "Site Template Editor"}}</li>
+            </ol>
+        </nav>
+        <div class="js-coral-Wizard-step coral-Wizard-step">
+            <a class="js-coral-Wizard-step-control coral-Button" href="/communities/communitysitetemplates" data-action="cancel">{{i18n "Cancel"}}</a>
+            <button type="button" id = "cq-social-create-sitetemplate-submit" autocomplete="off" class="coral-Button js-coral-Wizard-step-control" data-action="next">{{i18n "Save"}}</button>
+            <div data-init="tabs" class="coral-TabPanel coral-TabPanel--large">
+                <input type="hidden" name=":operation" value="social:createSiteTemplate">
+                <input type="hidden" name="_charset_" value="utf-8">
+                <input type="hidden" name="functions" id="functions" value="{}">                    
+                <nav class="coral-TabPanel-navigation  scf-sitetemplate-tabs">
+                    <a class="coral-TabPanel-tab is-active" data-toggle="tab">{{i18n "Basic Info"}}</a>
+                    <a class="coral-TabPanel-tab" data-toggle="tab">{{i18n "Thumbnail"}}</a>
+                    <a class="coral-TabPanel-tab" data-toggle="tab">{{i18n "Structure"}}</a>
+                </nav>
+                <div class="coral-TabPanel-content">
+                    <section class="coral-TabPanel-pane is-active">
+                        {{include this resourceType="social/console/components/hbs/createsitetemplate" template="basictab" authoringDisabled='true'}}
+                    </section>
+                    <section class="coral-TabPanel-pane">
+                        <div class="coral-FixedColumn foundation-layout-util-vmargin">
+                            <div class="coral-FixedColumn-column">
+                                {{#include this.id resourceType='social/console/components/hbs/imageupload' authoringDisabled='true'}} { "inputname" : "thumbnail" } {{/include}}
+                            </div>
+                        </div>
+                    </section>
+                    <section class="coral-TabPanel-pane">
+                        <div class="foundation-layout-util-vmargin">
+                            {{include this resourceType="social/console/components/hbs/draggablecommunityfunctions"}}
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </form>
+    {{include this resourceType="social/console/components/hbs/createsitetemplate" template="modaldialog" authoringDisabled='true'}}
+</div>

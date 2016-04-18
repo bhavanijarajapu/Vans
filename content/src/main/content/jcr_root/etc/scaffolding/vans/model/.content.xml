@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        jcr:primaryType="nt:unstructured"
+        jcr:title="AEM Sites"
+        sling:resourceType="granite/ui/components/foundation/page">
+        <head jcr:primaryType="nt:unstructured">
+            <viewport
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/admin/page/viewport"/>
+            <meta
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/meta"
+                content="chrome=1"
+                name="X-UA-Compatible"/>
+            <favicon
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/page/favicon"/>
+            <clientlibs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/includeclientlibs"
+                categories="[granite.shared,coralui2,granite.ui.foundation,granite.ui.foundation.admin,social.console.blueprintpicker,cq.social.console.hbs.themes]"/>
+        </head>
+        <body
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/page/body">
+            <layout
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/layouts/fit"/>
+            <content
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/form"
+                action="/content.social.json"
+                class="hide-steps"
+                enctype="multipart/form-data"
+                id="cq-social-console-form"
+                method="post"
+                rel="cq-social-console-form">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/wizard"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <blueprint
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Site Template New"
+                        sling:resourceType="granite/ui/components/foundation/container"
+                        class="u-coral-hidden">
+                        <items jcr:primaryType="nt:unstructured">
+                            <fixedColumnContainer
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/container"
+                                class="cq-social-console-blueprint">
+                                <layout
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                                <items jcr:primaryType="nt:unstructured">
+                                    <fixedColumn
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <title
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldLabel="Community Site Name First"
+                                                name="name"
+                                                required="false"/>
+                                            <description
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                fieldLabel="Communities Site Description new"
+                                                name="jcr:description"
+                                                required="false"/>
+                                            <charset
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                                ignoreData="{Boolean}true"
+                                                name="_charset_"
+                                                value="utf-8"/>
+                                            <operation
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                                ignoreData="{Boolean}true"
+                                                name=":operation"
+                                                value="social:createSite"/>
+                                            <dns
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldLabel="DNS information"
+                                                name="dns"
+                                                required="false"/>
+                                            <siteurl
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                class="js-social-console-siteurl"
+                                                fieldLabel="Community Site URL Name"
+                                                name="urlName"
+                                                required="false"
+                                                validation="foundation.jcr.name"/>
+                                            <siteurlclone
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                class="js-social-console-siteurlclone"
+                                                disabled="true"
+                                                name="siteurlclone"
+                                                required="false"/>
+                                            <blueprint
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                                emptyText="Select"
+                                                fieldDescription="Select Community Site Template"
+                                                fieldLabel="Select Community Site Template"
+                                                multiple="{Boolean}false"
+                                                name="blueprint"
+                                                path="/etc/social/blueprints/sites"
+                                                translateOptions="{Boolean}[true]">
+                                                <datasource
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="social/console/components/datasources/fetchblueprints"/>
+                                            </blueprint>
+                                        </items>
+                                    </fixedColumn>
+                                </items>
+                            </fixedColumnContainer>
+                            <cancel
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/hyperlink"
+                                class="foundation-wizard-control"
+                                foundation-wizard-control-action="cancel"
+                                href="/etc/vans/models.html/etc/commerce/products/vans/models"
+                                text="Cancel"/>
+                            <next
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/button"
+                                class="foundation-wizard-control"
+                                disabled="{Boolean}false"
+                                foundation-wizard-control-action="next"
+                                text="Next"/>
+                        </items>
+                    </blueprint>
+                    <design
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Design"
+                        sling:resourceType="granite/ui/components/foundation/container"
+                        class="u-coral-hidden">
+                        <items jcr:primaryType="nt:unstructured">
+                            <fixedColumnContainer
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/container"
+                                class="cq-social-console-blueprint">
+                                <layout
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                                <items jcr:primaryType="nt:unstructured">
+                                    <fixedColumn
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/container"
+                                        class="social-console-settings-tab">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <tabs
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/container"
+                                                class="coral-TabPanel--large">
+                                                <layout
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/layouts/tabs"/>
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <themes
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="Community Site Theme"
+                                                        sling:resourceType="granite/ui/components/foundation/section">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <listthemes
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="social/console/components/hbs/sitethemes"
+                                                                name="cqsocialtheme"/>
+                                                        </items>
+                                                    </themes>
+                                                    <headerimg
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="Community Site Branding"
+                                                        sling:resourceType="granite/ui/components/foundation/section">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <headerimg
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="social/console/components/imageupload"
+                                                                fieldDescription="Choose a header image"
+                                                                fieldLabel="Community Site Header Image"
+                                                                name="headerimage"
+                                                                renderReadOnly="{Boolean}false"/>
+                                                        </items>
+                                                    </headerimg>
+                                                    <css
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="Upload Custom CSS"
+                                                        sling:resourceType="granite/ui/components/foundation/section">
+                                                        <items jcr:primaryType="nt:unstructured"/>
+                                                    </css>
+                                                </items>
+                                            </tabs>
+                                        </items>
+                                    </fixedColumn>
+                                </items>
+                            </fixedColumnContainer>
+                            <prev
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/button"
+                                class="foundation-wizard-control"
+                                foundation-wizard-control-action="prev"
+                                text="Back"/>
+                            <next
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/button"
+                                class="foundation-wizard-control"
+                                disabled="{Boolean}true"
+                                foundation-wizard-control-action="next"
+                                text="Next"/>
+                        </items>
+                    </design>
+                    <settings
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Settings"
+                        sling:resourceType="granite/ui/components/foundation/container"
+                        class="u-coral-hidden">
+                        <items jcr:primaryType="nt:unstructured">
+                            <fixedColumnContainer
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/container"
+                                class="cq-social-console-blueprint">
+                                <layout
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                                <items jcr:primaryType="nt:unstructured">
+                                    <fixedColumn
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/container"
+                                        class="social-console-settings-tab">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <tabs
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/container"
+                                                class="coral-TabPanel--large">
+                                                <layout
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/layouts/tabs"/>
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <usermanagement
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="User Management"
+                                                        sling:resourceType="granite/ui/components/foundation/section"
+                                                        class="social-console-user-management">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <fixedColumnContainer
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/foundation/container"
+                                                                class="cq-social-console-blueprint">
+                                                                <layout
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                                                                    margin="{Boolean}true"/>
+                                                                <items jcr:primaryType="nt:unstructured">
+                                                                    <fixedColumn
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/foundation/container"
+                                                                        class="social-console-user-setting-column">
+                                                                        <items jcr:primaryType="nt:unstructured">
+                                                                            <allowuserregistration
+                                                                                jcr:primaryType="nt:unstructured"
+                                                                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                                                                checked="{Boolean}false"
+                                                                                name="allowuserregistration"
+                                                                                text="Allow User Registration"
+                                                                                value="true"/>
+                                                                            <allowanonymousaccess
+                                                                                jcr:primaryType="nt:unstructured"
+                                                                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                                                                checked="{Boolean}false"
+                                                                                name="allowanonymousaccess"
+                                                                                text="Allow Anonymous Access"
+                                                                                value="true"/>
+                                                                            <allowprivatemessaging
+                                                                                jcr:primaryType="nt:unstructured"
+                                                                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                                                                checked="{Boolean}false"
+                                                                                name="allowprivatemessaging"
+                                                                                text="Allow Private Messaging"
+                                                                                value="true"/>
+                                                                        </items>
+                                                                    </fixedColumn>
+                                                                    <fixedColumn_alt
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/foundation/container"
+                                                                        class="social-console-user-setting-column">
+                                                                        <items jcr:primaryType="nt:unstructured">
+                                                                            <allowfacebook
+                                                                                jcr:primaryType="nt:unstructured"
+                                                                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                                                                checked="{Boolean}false"
+                                                                                name="allowfacebook"
+                                                                                text="Allow Social Logins: Facebook"
+                                                                                value="true"/>
+                                                                            <allowtwitter
+                                                                                jcr:primaryType="nt:unstructured"
+                                                                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                                                                checked="{Boolean}false"
+                                                                                name="allowtwitter"
+                                                                                text="Allow Social Logins: Twitter"
+                                                                                value="true"/>
+                                                                        </items>
+                                                                    </fixedColumn_alt>
+                                                                </items>
+                                                            </fixedColumnContainer>
+                                                        </items>
+                                                    </usermanagement>
+                                                    <tagging
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="Tagging"
+                                                        sling:resourceType="granite/ui/components/foundation/section">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <tags
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/foundation/form/autocomplete"
+                                                                fieldLabel="Tags"
+                                                                mode="contains"
+                                                                multiple="{Boolean}true"
+                                                                name="tagNameSpaces">
+                                                                <datasource
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="cq/gui/components/common/datasources/tags"/>
+                                                                <values
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/autocomplete/tags"/>
+                                                                <options
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/autocomplete/list"/>
+                                                            </tags>
+                                                        </items>
+                                                    </tagging>
+                                                    <moderation
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="Moderation"
+                                                        sling:resourceType="granite/ui/components/foundation/section">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <allowuserregistration
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                                                checked="{Boolean}false"
+                                                                name="moderateContent"
+                                                                text="Content Is Pre-moderated"
+                                                                value="true"/>
+                                                            <moderationcount
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/foundation/form/numberfield"
+                                                                fieldLabel="Flagging threshold before content is hidden"
+                                                                min="{Long}0"
+                                                                name="flagModerator"
+                                                                step="{Long}5"/>
+                                                            <moderators
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/foundation/form/userpicker"
+                                                                fieldLabel="Community Moderators"
+                                                                name="moderators"/>
+                                                        </items>
+                                                    </moderation>
+                                                    <groupmanagement
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="Group Management"
+                                                        sling:resourceType="granite/ui/components/foundation/section">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <groupcreation
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/foundation/form/radiogroup"
+                                                                class="js-social-console-group-creation coral-RadioGroup--vertical"
+                                                                fieldLabel="Group Creation"
+                                                                name="createGroupPermission"
+                                                                text="Group Creation"
+                                                                title="Group Creation">
+                                                                <items jcr:primaryType="nt:unstructured">
+                                                                    <adminonly
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/foundation/form/radio"
+                                                                        checked="true"
+                                                                        name="createGroupPermission"
+                                                                        text="Only Community Administrators"
+                                                                        value="COMMUNITY_ADMINISTRATORS"/>
+                                                                    <members
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/foundation/form/radio"
+                                                                        class="js-social-console-group-members"
+                                                                        name="createGroupPermission"
+                                                                        text="Selected Community Members"
+                                                                        value="COMMUNITY_GROUP_ADMINISTRATORS"/>
+                                                                    <everyone
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/foundation/form/radio"
+                                                                        name="createGroupPermission"
+                                                                        text="Everyone"
+                                                                        value="EVERYONE"/>
+                                                                </items>
+                                                            </groupcreation>
+                                                            <moderators
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/foundation/form/userpicker"
+                                                                class="js-social-console-group-moderators"
+                                                                fieldLabel="Community Moderators"
+                                                                name="groupAdmin"/>
+                                                        </items>
+                                                    </groupmanagement>
+                                                </items>
+                                            </tabs>
+                                        </items>
+                                    </fixedColumn>
+                                </items>
+                            </fixedColumnContainer>
+                            <prev
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/button"
+                                class="foundation-wizard-control"
+                                foundation-wizard-control-action="prev"
+                                text="Back"/>
+                            <next
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/button"
+                                class="foundation-wizard-control"
+                                disabled="{Boolean}true"
+                                foundation-wizard-control-action="next"
+                                text="Next"/>
+                        </items>
+                    </settings>
+                    <preview
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Preview"
+                        sling:resourceType="granite/ui/components/foundation/container"
+                        class="u-coral-hidden">
+                        <items jcr:primaryType="nt:unstructured">
+                            <emptypage
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="social/console/components/hbs/emptypage"/>
+                            <prev
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/button"
+                                class="foundation-wizard-control"
+                                foundation-wizard-control-action="prev"
+                                text="Back"/>
+                            <create
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/submit"
+                                class="foundation-wizard-control"
+                                foundation-wizard-control-action="next"
+                                id="cq-social-create-site-submit"
+                                text="Create"/>
+                        </items>
+                    </preview>
+                </items>
+            </content>
+        </body>
+    </jcr:content>
+</jcr:root>

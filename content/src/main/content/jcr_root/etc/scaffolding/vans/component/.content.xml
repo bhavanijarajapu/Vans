@@ -1,0 +1,770 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2016-03-17T13:40:53.840+05:30"
+        cq:lastModifiedBy="admin"
+        cq:targetPath="/etc/commerce/products/vans/components"
+        jcr:description="Scaffolding Used to create Product Data for Havells."
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Product"
+        sling:resourceType="wcm/scaffolding/components/scaffolding">
+        <cq:dialog
+            jcr:primaryType="nt:unstructured"
+            jcr:title="Havells Product Properties"
+            sling:resourceType="cq/gui/components/authoring/dialog">
+            <layout
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+                type="nav"
+                width="auto"/>
+            <content
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <tabs
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container"
+                        class="productFixedCol">
+                        <layout
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+                            type="nav"/>
+                        <items jcr:primaryType="nt:unstructured">
+                            <general
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="General"
+                                sling:resourceType="granite/ui/components/foundation/section">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <general
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/fieldset">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <sku
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldLabel="Product SKU Id *"
+                                                name="./identifier"
+                                                renderReadOnly="{Boolean}true"
+                                                required="{Boolean}true"
+                                                validation="havells.sku"/>
+                                            <title
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldLabel="Title *"
+                                                name="./jcr:title"
+                                                renderReadOnly="{Boolean}true"
+                                                required="{Boolean}true"/>
+                                            <productDefaultImage
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                fieldDescription="Provide product default Image"
+                                                fieldLabel="Product Default Image"
+                                                name="./image/fileReference"
+                                                renderReadOnly="{Boolean}true"
+                                                rootPath="/content/dam/havells"/>
+                                            <hiddenImagePath
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                                ignoreData="{Boolean}true"
+                                                name="./image/sling:resourceType"
+                                                value="commerce/components/product/image"/>
+                                            <imagepaths
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/multifield"
+                                                class="full-width"
+                                                fieldDescription="Click '+' to add Image Path"
+                                                fieldLabel="Product Images"
+                                                renderReadOnly="{Boolean}true">
+                                                <field
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                    name="./productImages"
+                                                    renderReadOnly="{Boolean}true"
+                                                    rootPath="/content/dam/havells"/>
+                                            </imagepaths>
+                                            <tags
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/autocomplete"
+                                                basePath="/etc/tags/havells"
+                                                fieldLabel="Product Category Tag"
+                                                mode="contains"
+                                                multiple="{Boolean}true"
+                                                name="./cq:tags"
+                                                pathRoots="/etc/tags/havells"
+                                                renderReadOnly="{Boolean}true">
+                                                <datasource
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="cq/gui/components/common/datasources/tags"/>
+                                                <values
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/autocomplete/tags"/>
+                                                <options
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/autocomplete/list"/>
+                                            </tags>
+                                            <tags-typehint
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                                ignoreData="{Boolean}true"
+                                                name="./cq:tags@TypeHint"
+                                                value="String[]"/>
+                                            <productQty
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/numberfield"
+                                                fieldLabel="Product Quantity"
+                                                name="./productQty"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <minProductQty
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/numberfield"
+                                                fieldLabel="Minimum Product Quantity"
+                                                name="./minProductQty"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <color
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldLabel="Color"
+                                                name="./color"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <size
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldLabel="Size"
+                                                name="./size"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <price
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                disabled="{Boolean}true"
+                                                fieldLabel="Price"
+                                                name="./price"
+                                                renderReadOnly="{Boolean}true"
+                                                validation="havells.price"/>
+                                            <sellingPrice
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                disabled="{Boolean}true"
+                                                fieldLabel="Selling Price"
+                                                name="./sellingPrice"
+                                                renderReadOnly="{Boolean}true"
+                                                validation="havells.price"/>
+                                            <price-typehint
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                                name="./price@TypeHint"
+                                                renderReadOnly="{Boolean}true"
+                                                value="Decimal"/>
+                                            <tags-delete
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                                ignoreData="{Boolean}true"
+                                                name="./cq:tags@Delete"
+                                                value="delete-empty"/>
+                                            <charset
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                                ignoreData="{Boolean}true"
+                                                name="_charset_"
+                                                value="utf-8"/>
+                                            <mixinTag
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                                ignoreData="{Boolean}true"
+                                                name="./jcr:mixinTypes"
+                                                value="cq:Taggable"/>
+                                            <giftWrap
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/dropdown"
+                                                fieldLabel="Gift Wrap"
+                                                name="./giftWrap"
+                                                renderReadOnly="{Boolean}true">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <no
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="No"
+                                                        value="no"/>
+                                                    <yes
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Yes"
+                                                        value="yes"/>
+                                                </items>
+                                            </giftWrap>
+                                            <product-manual
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                fieldDescription="Provide a manual path"
+                                                fieldLabel="Product Manual"
+                                                name="./productManual"
+                                                renderReadOnly="{Boolean}true"
+                                                rootPath="/content/dam"/>
+                                            <brochure
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                fieldDescription="Provide a path to the product brochure"
+                                                fieldLabel="Product Brochure"
+                                                name="./productBrochure"
+                                                renderReadOnly="{Boolean}true"
+                                                rootPath="/content/dam"/>
+                                        </items>
+                                    </general>
+                                </items>
+                            </general>
+                            <quickFeature
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Quick Feature"
+                                sling:resourceType="granite/ui/components/foundation/section">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <features
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/fieldset">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <heading_1
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldLabel="Heading 1"
+                                                name="./otherInfo/quickFeatures/heading1"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <desc_1
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                fieldLabel="Description 1"
+                                                name="./otherInfo/quickFeatures/description1"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <heading_2
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldLabel="Heading 2"
+                                                name="./otherInfo/quickFeatures/heading2"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <desc_2
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                fieldLabel="Description 2"
+                                                name="./otherInfo/quickFeatures/description2"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <heading_3
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldLabel="Heading 3"
+                                                name="./otherInfo/quickFeatures/heading3"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <desc_3
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                fieldLabel="Description 3"
+                                                name="./otherInfo/quickFeatures/description3"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <heading_4
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                defaultValue="Warranty"
+                                                fieldLabel="Warranty Label"
+                                                name="./otherInfo/quickFeatures/heading4"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <desc_4
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldLabel="Warranty (number in months)"
+                                                name="./otherInfo/quickFeatures/description4"
+                                                renderReadOnly="{Boolean}true"/>
+                                        </items>
+                                    </features>
+                                </items>
+                            </quickFeature>
+                            <detailFeature
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Details Feature"
+                                sling:resourceType="granite/ui/components/foundation/section">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <detailFeature
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/fieldset">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <heading_1
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldLabel="Heading 1"
+                                                name="./otherInfo/detailFeatures/heading1"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <desc_1
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                fieldLabel="Description 1"
+                                                name="./otherInfo/detailFeatures/description1"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <image_1
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                fieldLabel="Image 1"
+                                                name="./otherInfo/detailFeatures/image1"
+                                                renderReadOnly="{Boolean}true"
+                                                rootPath="/content/dam/havells"/>
+                                            <heading_2
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldLabel="Heading 2"
+                                                name="./otherInfo/detailFeatures/heading2"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <desc_2
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                fieldLabel="Description 2"
+                                                name="./otherInfo/detailFeatures/description2"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <image_2
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                fieldLabel="Image 2"
+                                                name="./otherInfo/detailFeatures/image2"
+                                                renderReadOnly="{Boolean}true"
+                                                rootPath="/content/dam/havells"/>
+                                            <heading_3
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldLabel="Heading 3"
+                                                name="./otherInfo/detailFeatures/heading3"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <desc_3
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                fieldLabel="Description 3"
+                                                name="./otherInfo/detailFeatures/description3"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <image_3
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                fieldLabel="Image 3"
+                                                name="./otherInfo/quickFeatures/image3"
+                                                renderReadOnly="{Boolean}true"
+                                                rootPath="/content/dam/havells"/>
+                                            <heading_4
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldLabel="Heading 4"
+                                                name="./otherInfo/detailFeatures/heading4"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <desc_4
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                fieldLabel="Description 4"
+                                                name="./otherInfo/detailFeatures/description4"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <image_4
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                fieldLabel="Image 4"
+                                                name="./otherInfo/detailFeatures/image4"
+                                                renderReadOnly="{Boolean}true"
+                                                rootPath="/content/dam/havells"/>
+                                            <heading_5
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldLabel="Heading 5"
+                                                name="./otherInfo/detailFeatures/heading5"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <desc_5
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                fieldLabel="Description 5"
+                                                name="./otherInfo/detailFeatures/description5"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <image_5
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                fieldLabel="Image 5"
+                                                name="./otherInfo/detailFeatures/image5"
+                                                renderReadOnly="{Boolean}true"
+                                                rootPath="/content/dam/havells"/>
+                                            <heading_6
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldLabel="Heading 6"
+                                                name="./otherInfo/detailFeatures/heading6"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <desc_6
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                fieldLabel="Description 6"
+                                                name="./otherInfo/detailFeatures/description6"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <image_6
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                fieldLabel="Image 6"
+                                                name="./otherInfo/detailFeatures/image6"
+                                                renderReadOnly="{Boolean}true"
+                                                rootPath="/content/dam/havells"/>
+                                            <heading_7
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldLabel="Heading 7"
+                                                name="./otherInfo/detailFeatures/heading7"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <desc_7
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                fieldLabel="Description 7"
+                                                name="./otherInfo/detailFeatures/description7"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <image_7
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                fieldLabel="Image 7"
+                                                name="./otherInfo/detailFeatures/image7"
+                                                renderReadOnly="{Boolean}true"
+                                                rootPath="/content/dam/havells"/>
+                                            <heading_8
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldLabel="Heading 8"
+                                                name="./otherInfo/detailFeatures/heading8"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <desc_8
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                fieldLabel="Description 8"
+                                                name="./otherInfo/detailFeatures/description8"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <image_8
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                fieldLabel="Image 8"
+                                                name="./otherInfo/detailFeatures/image8"
+                                                renderReadOnly="{Boolean}true"
+                                                rootPath="/content/dam/havells"/>
+                                            <heading_9
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldLabel="Heading 9"
+                                                name="./otherInfo/detailFeatures/heading9"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <desc_9
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                fieldLabel="Description 9"
+                                                name="./otherInfo/detailFeatures/description9"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <image_9
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                fieldLabel="Image 9"
+                                                name="./otherInfo/detailFeatures/image9"
+                                                renderReadOnly="{Boolean}true"
+                                                rootPath="/content/dam/havells"/>
+                                            <heading_10
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldLabel="Heading 10"
+                                                name="./otherInfo/detailFeatures/heading10"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <desc_10
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                fieldLabel="Description 10"
+                                                name="./otherInfo/detailFeatures/description10"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <image_10
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                fieldLabel="Image 10"
+                                                name="./otherInfo/detailFeatures/image10"
+                                                renderReadOnly="{Boolean}true"
+                                                rootPath="/content/dam/havells"/>
+                                            <heading_11
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldLabel="Heading 11"
+                                                name="./otherInfo/detailFeatures/heading11"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <desc_11
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                fieldLabel="Description 11"
+                                                name="./otherInfo/detailFeatures/description11"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <image_11
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                fieldLabel="Image 11"
+                                                name="./otherInfo/detailFeatures/image11"
+                                                renderReadOnly="{Boolean}true"
+                                                rootPath="/content/dam/havells"/>
+                                            <heading_12
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldLabel="Heading 12"
+                                                name="./otherInfo/detailFeatures/heading12"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <desc_12
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                fieldLabel="Description 12"
+                                                name="./otherInfo/detailFeatures/description12"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <image_12
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                fieldLabel="Image 12"
+                                                name="./otherInfo/detailFeatures/image12"
+                                                renderReadOnly="{Boolean}true"
+                                                rootPath="/content/dam/havells"/>
+                                            <heading_13
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldLabel="Heading 13"
+                                                name="./otherInfo/detailFeatures/heading13"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <desc_13
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                fieldLabel="Description 13"
+                                                name="./otherInfo/detailFeatures/description13"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <image_13
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                fieldLabel="Image 13"
+                                                name="./otherInfo/detailFeatures/image13"
+                                                renderReadOnly="{Boolean}true"
+                                                rootPath="/content/dam/havells"/>
+                                            <heading_14
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldLabel="Heading 14"
+                                                name="./otherInfo/detailFeatures/heading14"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <desc_14
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                fieldLabel="Description 14"
+                                                name="./otherInfo/detailFeatures/description14"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <image_14
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                fieldLabel="Image 14"
+                                                name="./otherInfo/detailFeatures/image14"
+                                                renderReadOnly="{Boolean}true"
+                                                rootPath="/content/dam/havells"/>
+                                            <heading_15
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldLabel="Heading 15"
+                                                name="./otherInfo/detailFeatures/heading15"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <desc_15
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                fieldLabel="Description 15"
+                                                name="./otherInfo/detailFeatures/description15"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <image_15
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                fieldLabel="Image 15"
+                                                name="./otherInfo/detailFeatures/image15"
+                                                renderReadOnly="{Boolean}true"
+                                                rootPath="/content/dam/havells"/>
+                                            <heading_16
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldLabel="Heading 16"
+                                                name="./otherInfo/detailFeatures/heading16"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <desc_16
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                fieldLabel="Description 16"
+                                                name="./otherInfo/detailFeatures/description16"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <image_16
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                fieldLabel="Image 16"
+                                                name="./otherInfo/detailFeatures/image16"
+                                                renderReadOnly="{Boolean}true"
+                                                rootPath="/content/dam/havells"/>
+                                            <heading_17
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldLabel="Heading 17"
+                                                name="./otherInfo/detailFeatures/heading17"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <desc_17
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                fieldLabel="Description 17"
+                                                name="./otherInfo/detailFeatures/description17"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <image_17
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                fieldLabel="Image 17"
+                                                name="./otherInfo/detailFeatures/image17"
+                                                renderReadOnly="{Boolean}true"
+                                                rootPath="/content/dam/havells"/>
+                                            <heading_18
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldLabel="Heading 18"
+                                                name="./otherInfo/detailFeatures/heading18"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <desc_18
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                fieldLabel="Description 18"
+                                                name="./otherInfo/detailFeatures/description18"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <image_18
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                fieldLabel="Image 18"
+                                                name="./otherInfo/detailFeatures/image18"
+                                                renderReadOnly="{Boolean}true"
+                                                rootPath="/content/dam/havells"/>
+                                            <heading_19
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldLabel="Heading 19"
+                                                name="./otherInfo/detailFeatures/heading19"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <desc_19
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                fieldLabel="Description 19"
+                                                name="./otherInfo/detailFeatures/description19"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <image_19
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                fieldLabel="Image 19"
+                                                name="./otherInfo/detailFeatures/image19"
+                                                renderReadOnly="{Boolean}true"
+                                                rootPath="/content/dam/havells"/>
+                                            <heading_20
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldLabel="Heading 20"
+                                                name="./otherInfo/detailFeatures/heading20"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <desc_20
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                fieldLabel="Description 20"
+                                                name="./otherInfo/detailFeatures/description20"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <image_20
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                fieldLabel="Image 20"
+                                                name="./otherInfo/detailFeatures/image20"
+                                                renderReadOnly="{Boolean}true"
+                                                rootPath="/content/dam/havells"/>
+                                            <heading_21
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldLabel="Heading 21"
+                                                name="./otherInfo/detailFeatures/heading21"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <desc_21
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                fieldLabel="Description 21"
+                                                name="./otherInfo/detailFeatures/description21"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <image_21
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                fieldLabel="Image 21"
+                                                name="./otherInfo/detailFeatures/image21"
+                                                renderReadOnly="{Boolean}true"
+                                                rootPath="/content/dam/havells"/>
+                                            <heading_22
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldLabel="Heading 22"
+                                                name="./otherInfo/detailFeatures/heading22"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <desc_22
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                fieldLabel="Description 22"
+                                                name="./otherInfo/detailFeatures/description22"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <image_22
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                fieldLabel="Image 22"
+                                                name="./otherInfo/detailFeatures/image22"
+                                                renderReadOnly="{Boolean}true"
+                                                rootPath="/content/dam/havells"/>
+                                            <heading_23
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldLabel="Heading 23"
+                                                name="./otherInfo/detailFeatures/heading23"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <desc_23
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                fieldLabel="Description 23"
+                                                name="./otherInfo/detailFeatures/description23"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <image_23
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                fieldLabel="Image 23"
+                                                name="./otherInfo/detailFeatures/image23"
+                                                renderReadOnly="{Boolean}true"
+                                                rootPath="/content/dam/havells"/>
+                                            <heading_24
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldLabel="Heading 24"
+                                                name="./otherInfo/detailFeatures/heading24"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <desc_24
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                fieldLabel="Description 24"
+                                                name="./otherInfo/detailFeatures/description24"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <image_24
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                fieldLabel="Image 24"
+                                                name="./otherInfo/detailFeatures/image24"
+                                                renderReadOnly="{Boolean}true"
+                                                rootPath="/content/dam/havells"/>
+                                            <heading_25
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldLabel="Heading 25"
+                                                name="./otherInfo/detailFeatures/heading25"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <desc_25
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                fieldLabel="Description 25"
+                                                name="./otherInfo/detailFeatures/description25"
+                                                renderReadOnly="{Boolean}true"/>
+                                            <image_25
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                fieldLabel="Image 25"
+                                                name="./otherInfo/detailFeatures/image25"
+                                                renderReadOnly="{Boolean}true"
+                                                rootPath="/content/dam/havells"/>
+                                        </items>
+                                    </detailFeature>
+                                </items>
+                            </detailFeature>
+                        </items>
+                    </tabs>
+                </items>
+            </content>
+        </cq:dialog>
+        <dialog/>
+    </jcr:content>
+</jcr:root>

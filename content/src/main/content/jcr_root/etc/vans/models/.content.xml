@@ -1,0 +1,1101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        jcr:primaryType="nt:unstructured"
+        jcr:title="AEM Products"
+        sling:resourceType="granite/ui/components/foundation/page">
+        <head jcr:primaryType="nt:unstructured">
+            <viewport
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/admin/page/viewport"/>
+            <meta
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/meta"
+                content="chrome=1"
+                name="X-UA-Compatible"/>
+            <favicon
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/page/favicon"/>
+            <clientlibs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/includeclientlibs"
+                categories="[coralui2,granite.ui.foundation,granite.ui.foundation.admin,cq.common.wcm,commerce.gui.products.admin,commerce.gui.collections.addcollectiontoproduct]"/>
+            <title
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="commerce/gui/components/admin/common/pagetitle"
+                rootPath="/etc/commerce/products/vans/models"/>
+        </head>
+        <body
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/page/body">
+            <layout
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/endor/layouts/page"/>
+            <rail
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/endor/navcolumns"
+                currentId="cq-commerce-vans-models"
+                srcPath="cq/core/content/nav"/>
+            <title
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="commerce/gui/components/admin/common/endor/title"
+                contentPath="${requestPathInfo.suffix}"/>
+            <header
+                jcr:primaryType="nt:unstructured"
+                srcPath="/mnt/overlay/cq/core/content/header"/>
+            <content
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/container">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/endor/layouts/content"/>
+                <aside
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/container">
+                    <layout
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/endor/layouts/sidepanels"/>
+                    <items jcr:primaryType="nt:unstructured">
+                        <search
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/foundation/container"
+                            id="granite-rail-search">
+                            <items jcr:primaryType="nt:unstructured">
+                                <searchpanel
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="cq/gui/components/common/admin/navigationpanel"
+                                    foundation-form-ajax="{Boolean}true"
+                                    foundation-form-output-push=".foundation-content"
+                                    path="${empty requestPathInfo.suffix ? &quot;/etc/commerce/products&quot; : requestPathInfo.suffix}">
+                                    <result
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/container">
+                                        <layout
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/endor/layouts/content"/>
+                                        <header
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/container">
+                                            <layout
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/layouts/mode"
+                                                group="cq-commerce-products-searchresults"/>
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <default
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/navigation">
+                                                    <layout
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/endor/layouts/actionbar"/>
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <toggleselectionmode
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/endor/actionbar/button"
+                                                            class="foundation-mode-change foundation-collection-action"
+                                                            foundation-collection-action="\{&quot;target&quot;: &quot;.cq-commerce-products-searchresults&quot;, &quot;activeCount&quot;: &quot;>0&quot;}"
+                                                            foundation-mode-group="cq-commerce-products-searchresults"
+                                                            foundation-mode-value="selection"
+                                                            icon="icon-check-circle"
+                                                            text="Select"
+                                                            title="Select"/>
+                                                        <togglelayout
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/foundation/admin/layouttoggle"
+                                                            target=".cq-commerce-products-searchresults">
+                                                            <layoutConfig
+                                                                jcr:primaryType="nt:unstructured"
+                                                                align="right"/>
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <cards
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/endor/actionbar/button"
+                                                                    icon="icon-view-card"
+                                                                    text="List View"
+                                                                    title="List View">
+                                                                    <layout
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        name="foundation-layout-list"/>
+                                                                </cards>
+                                                                <list
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/endor/actionbar/button"
+                                                                    icon="icon-view-list"
+                                                                    text="Card View"
+                                                                    title="Card View">
+                                                                    <layout
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        name="foundation-layout-card"/>
+                                                                </list>
+                                                            </items>
+                                                        </togglelayout>
+                                                    </items>
+                                                </default>
+                                                <selection
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/navigation">
+                                                    <layout
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/endor/layouts/actionbar"/>
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <toggleselectionmode
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/endor/actionbar/button"
+                                                            active="{Boolean}true"
+                                                            class="foundation-mode-change"
+                                                            foundation-mode-group="cq-commerce-products-searchresults"
+                                                            foundation-mode-value="default"
+                                                            icon="icon-close-circle"
+                                                            text="Deselect"
+                                                            title="Deselect"/>
+                                                        <open
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/foundation/collection/action"
+                                                            action="cq.wcm.open"
+                                                            activeSelectionCount="single"
+                                                            icon="icon-edit"
+                                                            rel="cq-commerce-products-edit-activator"
+                                                            target=".cq-commerce-products-searchresults"
+                                                            text="View Product Data"
+                                                            title="View Product Data"
+                                                            variant="[quiet,secondary,actionBar]">
+                                                            <data
+                                                                jcr:primaryType="nt:unstructured"
+                                                                cookiePath.url="/"
+                                                                href.uritemplate="/bin/wcmcommand?cmd=open&amp;_charset_=utf-8&amp;path={item}"/>
+                                                        </open>
+                                                        <viewproperties
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/foundation/collection/action"
+                                                            action="foundation.link"
+                                                            activeSelectionCount="single"
+                                                            icon="icon-info-circle"
+                                                            rel="foundation-admin-properties-activator"
+                                                            target=".cq-commerce-products-searchresults"
+                                                            text="View Product Data"
+                                                            title="View Product Data"
+                                                            variant="[quiet,secondary,actionBar]">
+                                                            <data
+                                                                jcr:primaryType="nt:unstructured"
+                                                                href.uritemplate="/libs/commerce/gui/content/products/properties.html{+item}"/>
+                                                        </viewproperties>
+                                                        <addtocollection
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/foundation/collection/action"
+                                                            action="foundation.link"
+                                                            activeSelectionCount="multiple"
+                                                            icon="icon-collection-add-to"
+                                                            rel="cq-damadmin-admin-actions-add-to-collection-activator"
+                                                            target=".cq-commerce-products-searchresults"
+                                                            text="Add to Collection"
+                                                            title="Add To Collection"
+                                                            variant="[quiet,secondary,actionBar]">
+                                                            <data
+                                                                jcr:primaryType="nt:unstructured"
+                                                                href.uritemplate="#"/>
+                                                        </addtocollection>
+                                                        <publish
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/endor/actionbar/pulldownlink"
+                                                            class="foundation-collection-action"
+                                                            foundation-collection-action="\{&quot;target&quot;: &quot;.cq-commerce-products-searchresults&quot;, &quot;activeSelectionCount&quot;: &quot;multiple&quot;}"
+                                                            icon="icon-globe"
+                                                            rel="cq-commerce-products-publish-activator"
+                                                            text="Publish"
+                                                            title="Publish"
+                                                            x-cq-linkchecker="valid">
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <now
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/collection/actionlink"
+                                                                    action="cq.wcm.publish"
+                                                                    target=".cq-commerce-products-searchresults"
+                                                                    text="Publish">
+                                                                    <data
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        referenceSrc.url="/libs/wcm/core/content/reference.json?_charset_=utf-8{&amp;path*}"
+                                                                        wizardSrc.uritemplate="/libs/wcm/core/content/sites/publishpagewizard.html?_charset_=utf-8{&amp;item*}"/>
+                                                                </now>
+                                                                <later
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/collection/actionlink"
+                                                                    action="foundation.link"
+                                                                    target=".cq-commerce-products-searchresults"
+                                                                    text="Publish later">
+                                                                    <data
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        href.uritemplate="/libs/wcm/core/content/sites/publishpagewizard.html?later&amp;_charset_=utf-8{&amp;item*}"/>
+                                                                </later>
+                                                            </items>
+                                                        </publish>
+                                                        <unpublish
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/endor/actionbar/pulldownlink"
+                                                            class="foundation-collection-action"
+                                                            foundation-collection-action="\{&quot;target&quot;: &quot;.cq-commerce-products-searchresults&quot;, &quot;activeSelectionCount&quot;: &quot;multiple&quot;}"
+                                                            icon="icon-unpublish"
+                                                            rel="cq-commerce-products-unpublish-activator"
+                                                            text="Unpublish"
+                                                            title="Unpublish"
+                                                            x-cq-linkchecker="valid">
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <now
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/collection/actionlink"
+                                                                    action="cq.wcm.unpublish"
+                                                                    target=".cq-commerce-products-searchresults"
+                                                                    text="Unpublish"/>
+                                                                <later
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/collection/actionlink"
+                                                                    action="foundation.link"
+                                                                    target=".cq-commerce-products-searchresults"
+                                                                    text="Unpublish later">
+                                                                    <data
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        href.uritemplate="/libs/wcm/core/content/sites/unpublishpagewizard.html?later&amp;_charset_=utf-8{&amp;item*}"/>
+                                                                </later>
+                                                            </items>
+                                                        </unpublish>
+                                                        <deleteproduct
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/foundation/collection/action"
+                                                            action="cq.wcm.delete"
+                                                            activeSelectionCount="multiple"
+                                                            icon="icon-delete"
+                                                            rel="cq-commerce-products-delete-activator"
+                                                            target=".cq-commerce-products-searchresults"
+                                                            text="Delete"
+                                                            title="Delete"
+                                                            variant="[quiet,secondary,actionBar]"/>
+                                                        <selectionstatus
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/endor/actionbar/selectionstatus"
+                                                            target=".cq-commerce-products-searchresults">
+                                                            <layoutConfig
+                                                                jcr:primaryType="nt:unstructured"
+                                                                align="right"/>
+                                                        </selectionstatus>
+                                                    </items>
+                                                </selection>
+                                            </items>
+                                        </header>
+                                        <content
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/container">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <searchpages
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="cq/gui/components/siteadmin/admin/foundpages"
+                                                    datasourceResourceType="cq/gui/components/siteadmin/admin/searchdatasource"
+                                                    fetchSize="{Long}30"
+                                                    foundation-mode-group="cq-commerce-products-searchresults"
+                                                    itemResourceType="commerce/gui/components/admin/products/child"
+                                                    rel="cq-commerce-products-searchresults cq-common-admin-search-results">
+                                                    <layout
+                                                        jcr:primaryType="nt:unstructured"
+                                                        name="foundation-layout-card"/>
+                                                    <fields jcr:primaryType="nt:unstructured">
+                                                        <sku jcr:primaryType="nt:unstructured"/>
+                                                        <lastModified jcr:primaryType="nt:unstructured"/>
+                                                        <modifiedBy jcr:primaryType="nt:unstructured"/>
+                                                        <published jcr:primaryType="nt:unstructured"/>
+                                                        <publishedBy jcr:primaryType="nt:unstructured"/>
+                                                    </fields>
+                                                    <header
+                                                        jcr:primaryType="nt:unstructured"
+                                                        class="card-asset"
+                                                        moveable="{Boolean}true"
+                                                        selectable="{Boolean}true">
+                                                        <selector
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="cq/gui/components/siteadmin/admin/pages/headers/selector"/>
+                                                        <main
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="commerce/gui/components/admin/common/header"
+                                                            class="main"
+                                                            sort-selector=".label h4"
+                                                            title="TITLE"/>
+                                                        <sku
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="commerce/gui/components/admin/common/header"
+                                                            class="sku"
+                                                            sort-selector=".label .sku"
+                                                            title="SKU"/>
+                                                        <modified
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="commerce/gui/components/admin/common/header"
+                                                            class="modified"
+                                                            sort-attribute="data-timestamp"
+                                                            sort-selector=".label .modified .date"
+                                                            sort-type="numeric"
+                                                            title="MODIFIED"/>
+                                                        <published
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="commerce/gui/components/admin/common/header"
+                                                            class="published"
+                                                            sort-attribute="data-timestamp"
+                                                            sort-selector=".label .published .date"
+                                                            sort-type="numeric"
+                                                            title="PUBLISHED"/>
+                                                    </header>
+                                                </searchpages>
+                                            </items>
+                                        </content>
+                                    </result>
+                                    <savedsearches
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/autocomplete"
+                                        class="coral-Search--cqSearchPanel"
+                                        emptyText="Saved Searches"
+                                        forceSelection="{Boolean}true"
+                                        mode="contains"
+                                        multiple="{Boolean}false"
+                                        name="savedSearches"
+                                        rel="cq-siteadmin-admin-savedsearch">
+                                        <datasource
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="cq/gui/components/common/admin/navigationpanel/savedsearchdatasource"
+                                            searchHome="/home/users"/>
+                                        <options
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/form/autocomplete/list"/>
+                                    </savedsearches>
+                                    <toolbar
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/contsys"
+                                        class="cq-common-admin-search-toolbar"
+                                        htmlWrapTag="div">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <cancelsearchactionbutton
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/button"
+                                                disabled="{Boolean}true"
+                                                rel="cq-siteadmin-admin-search-toolbar-cancel-button cq-common-admin-search-toolbar-button"
+                                                text="Cancel"/>
+                                            <savesearchactionbutton
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/button"
+                                                disabled="{Boolean}true"
+                                                icon="icon-filterAdd"
+                                                rel="cq-siteadmin-admin-search-toolbar-save-button cq-common-admin-search-toolbar-button"
+                                                text="Save"
+                                                variant="primary"/>
+                                            <editsearchactionbutton
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/button"
+                                                disabled="{Boolean}true"
+                                                rel="cq-siteadmin-admin-search-toolbar-edit-button"
+                                                text="Edit Saved Search"/>
+                                            <savedsearchinfopanel
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/common/admin/navigationpanel/toolbar/infopanel"
+                                                usersHome="/home/users"/>
+                                            <actiondialogs
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/common/admin/navigationpanel/toolbar/actiondialogs"/>
+                                        </items>
+                                    </toolbar>
+                                    <facets
+                                        jcr:primaryType="nt:unstructured"
+                                        rootPath="/mnt/overlay/commerce/gui/content/facets/products"/>
+                                </searchpanel>
+                            </items>
+                        </search>
+                        <references
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/foundation/container"
+                            id="cq-rail-references">
+                            <items jcr:primaryType="nt:unstructured">
+                                <references
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/references/components/references"
+                                    text="References">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <list
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/contsys"
+                                            class="list">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <group
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/references/components/group"
+                                                    title="Links">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <product-pages
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/references/components/type"
+                                                            clientLibs="[commerce.gui.products.admin.references]"
+                                                            itemResourceType="commerce/gui/components/admin/products/reference"
+                                                            title="Product Pages"
+                                                            type="product"/>
+                                                    </items>
+                                                </group>
+                                            </items>
+                                        </list>
+                                    </items>
+                                </references>
+                            </items>
+                        </references>
+                    </items>
+                </aside>
+                <header
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/container">
+                    <layout
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/layouts/mode"
+                        group="cq-commerce-products-childpages"
+                        mode="${state[&quot;cq.commerce.products.childpages.selectionMode&quot;].boolean ? &quot;selection&quot; : &quot;default&quot; }"/>
+                    <items jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/foundation/navigation">
+                            <layout
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/endor/layouts/actionbar"/>
+                            <items jcr:primaryType="nt:unstructured">
+                                <search
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/endor/actionbar/innerrailtoggle"
+                                    icon="icon-search"
+                                    targetId="granite-rail-search"
+                                    text="Search"
+                                    title="Search"/>
+                                <references
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/endor/actionbar/innerrailtoggle"
+                                    class="cq-common-admin-navigationpanel-changemode"
+                                    foundation-mode-group="cq-commerce-products-childpages"
+                                    foundation-mode-value="selection"
+                                    icon="icon-unmerge"
+                                    targetId="cq-rail-references"
+                                    text="References"
+                                    title="References"/>
+                                <toggleselectionmode
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/endor/actionbar/button"
+                                    class="foundation-mode-change foundation-collection-action"
+                                    foundation-collection-action="\{&quot;target&quot;: &quot;.cq-commerce-products-childpages&quot;, &quot;activeCount&quot;: &quot;>0&quot;}"
+                                    foundation-mode-group="cq-commerce-products-childpages"
+                                    foundation-mode-value="selection"
+                                    icon="icon-check-circle"
+                                    text="Select"
+                                    title="Select"/>
+                                <create
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/endor/actionbar/pulldownlink"
+                                    icon="icon-add"
+                                    text="Create"
+                                    title="Create">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <createproduct
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/hyperlink"
+                                            href="/etc/scaffolding/vans/model.html"
+                                            rel="cq-commerce-products-createproduct-activator"
+                                            text="New Model">
+                                            <rendercondition
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/renderconditions/privilege"
+                                                path="${requestPathInfo.suffix}"
+                                                privileges="jcr:addChildNodes"/>
+                                        </createproduct>
+                                        <createvariation
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/hyperlink"
+                                            hidden="{Boolean}true"
+                                            href="/libs/commerce/gui/content/products/createvariationwizard.html${granite:encodeURIPath(requestPathInfo.suffix)}"
+                                            rel="cq-commerce-products-createvariation-activator"
+                                            text="Create Variation">
+                                            <rendercondition
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/renderconditions/privilege"
+                                                path="${requestPathInfo.suffix}"
+                                                privileges="jcr:addChildNodes"/>
+                                        </createvariation>
+                                        <createfolder
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/hyperlink"
+                                            href="#create-folder-modal"
+                                            rel="cq-commerce-products-createfolder-activator"
+                                            text="Create Folder">
+                                            <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                toggle="modal"/>
+                                            <rendercondition
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/renderconditions/privilege"
+                                                path="${requestPathInfo.suffix}"
+                                                privileges="jcr:addChildNodes"/>
+                                        </createfolder>
+                                    </items>
+                                </create>
+                                <import
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/endor/actionbar/hyperlink"
+                                    href="/libs/commerce/gui/content/products/importproductswizard.html${requestPathInfo.suffix}"
+                                    icon="icon-upload"
+                                    rel="cq-commerce-products-import-activator"
+                                    text="Import Products"
+                                    title="Import Products">
+                                    <rendercondition
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/renderconditions/privilege"
+                                        path="${requestPathInfo.suffix}"
+                                        privileges="jcr:addChildNodes"/>
+                                </import>
+                                <togglelayout
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/cyclebuttons"
+                                    active="${state[&quot;cq.commerce.products.childpages.layoutId&quot;].string}">
+                                    <layoutConfig
+                                        jcr:primaryType="nt:unstructured"
+                                        align="right"/>
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <card
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/endor/actionbar/button"
+                                            class="foundation-layout-control"
+                                            icon="icon-view-card"
+                                            text="Card View"
+                                            title="Card View">
+                                            <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                foundation-layout-control="\{&quot;action&quot;: &quot;switch&quot;, &quot;target&quot;: &quot;.cq-commerce-products-childpages&quot;, &quot;config&quot;: {&quot;name&quot;: &quot;foundation-layout-card&quot;, &quot;limit&quot;: 20, &quot;stateId&quot;: &quot;cq.commerce.products.childpages&quot;, &quot;layoutId&quot;: &quot;card&quot;, &quot;reload&quot;: &quot;${granite:uritemplate(&quot;/libs/commerce/gui/content/products/jcr:content/body/content/content/items/childpages{.offset,limit}.html{+id}&quot;)}&quot;}}"/>
+                                        </card>
+                                        <list
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/endor/actionbar/button"
+                                            class="foundation-layout-control"
+                                            icon="icon-view-list"
+                                            text="List View"
+                                            title="List View">
+                                            <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                foundation-layout-control="\{&quot;action&quot;: &quot;switch&quot;, &quot;target&quot;: &quot;.cq-commerce-products-childpages&quot;, &quot;config&quot;: {&quot;name&quot;: &quot;foundation-layout-list&quot;, &quot;limit&quot;: 40, &quot;stateId&quot;: &quot;cq.commerce.products.childpages&quot;, &quot;layoutId&quot;: &quot;list&quot;, &quot;reload&quot;: &quot;${granite:uritemplate(&quot;/libs/commerce/gui/content/products/jcr:content/body/content/content/items/childpages{.offset,limit}.html{+id}&quot;)}&quot;}}"/>
+                                        </list>
+                                        <columns
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/endor/actionbar/button"
+                                            class="foundation-layout-control"
+                                            icon="icon-view-column"
+                                            text="Column View"
+                                            title="Column View">
+                                            <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                foundation-layout-control="\{&quot;action&quot;: &quot;switch&quot;, &quot;target&quot;: &quot;.cq-commerce-products-childpages&quot;, &quot;config&quot;: {&quot;name&quot;: &quot;foundation-layout-columns&quot;, &quot;limit&quot;: 40, &quot;stateId&quot;: &quot;cq.commerce.products.childpages&quot;, &quot;layoutId&quot;: &quot;columns&quot;, &quot;reload&quot;: &quot;${granite:uritemplate(&quot;/libs/commerce/gui/content/products/jcr:content/body/content/content/items/childpages{.offset,limit}.html{+id}&quot;)}&quot;}}"/>
+                                        </columns>
+                                    </items>
+                                </togglelayout>
+                                <relationships
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="commerce/gui/components/admin/products/relationships"/>
+                            </items>
+                        </default>
+                        <selection
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/foundation/navigation">
+                            <layout
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/endor/layouts/actionbar"/>
+                            <items jcr:primaryType="nt:unstructured">
+                                <search
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/endor/actionbar/innerrailtoggle"
+                                    icon="icon-search"
+                                    targetId="granite-rail-search"
+                                    text="Search"
+                                    title="Search"/>
+                                <references
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/endor/actionbar/innerrailtoggle"
+                                    class="cq-common-admin-navigationpanel-changemode"
+                                    foundation-mode-group="cq-commerce-products-childpages"
+                                    foundation-mode-value="selection"
+                                    icon="icon-unmerge"
+                                    targetId="cq-rail-references"
+                                    text="References"
+                                    title="References"/>
+                                <toggleselectionmode
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/endor/actionbar/button"
+                                    active="{Boolean}true"
+                                    class="foundation-mode-change"
+                                    foundation-mode-group="cq-commerce-products-childpages"
+                                    foundation-mode-value="default"
+                                    icon="icon-close-circle active"
+                                    text="Deselect"
+                                    title="Deselect"/>
+                                <create
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/endor/actionbar/pulldownlink"
+                                    class="foundation-collection-action"
+                                    foundation-collection-action="\{&quot;target&quot;: &quot;.cq-commerce-products-childpages&quot;, &quot;activeSelectionCount&quot;: &quot;single&quot;}"
+                                    icon="icon-add"
+                                    rel="cq-commerce-products-createproduct-at-activator cq-commerce-products-createvariation-at-activator cq-commerce-products-createfolder-at-activator"
+                                    text="ankur"
+                                    title="ankur">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <createproduct
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/collection/actionlink"
+                                            action="foundation.link"
+                                            rel="cq-commerce-products-createproduct-at-activator"
+                                            target=".cq-commerce-products-childpages"
+                                            text="Create Product Data">
+                                            <data
+                                                jcr:primaryType="nt:unstructured"
+                                                href.uritemplate="/etc/vans/models/createproductwizard.html{+item}"/>
+                                        </createproduct>
+                                        <createvariation
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/collection/actionlink"
+                                            action="foundation.link"
+                                            rel="cq-commerce-products-createvariation-at-activator"
+                                            target=".cq-commerce-products-childpages"
+                                            text="Create Variation">
+                                            <data
+                                                jcr:primaryType="nt:unstructured"
+                                                href.uritemplate="/libs/commerce/gui/content/products/createvariationwizard.html{+item}"/>
+                                        </createvariation>
+                                        <createfolder
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/collection/actionlink"
+                                            action="cq.wcm.createfolder"
+                                            rel="cq-commerce-products-createfolder-at-activator"
+                                            target=".cq-commerce-products-childpages"
+                                            text="Create Folder">
+                                            <data
+                                                jcr:primaryType="nt:unstructured"
+                                                action.uritemplate.abs="\{+item}/"/>
+                                        </createfolder>
+                                    </items>
+                                </create>
+                                <import
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/collection/action"
+                                    action="foundation.link"
+                                    activeSelectionCount="single"
+                                    icon="icon-upload"
+                                    rel="cq-commerce-products-import-at-activator"
+                                    target=".cq-commerce-products-childpages"
+                                    text="Import Products New"
+                                    title="Import Products New"
+                                    variant="[quiet,secondary,actionBar]">
+                                    <data
+                                        jcr:primaryType="nt:unstructured"
+                                        href.uritemplate="/libs/commerce/gui/content/products/importproductswizard.html{+item}"/>
+                                </import>
+                                <open
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/collection/action"
+                                    action="cq.wcm.open"
+                                    activeSelectionCount="single"
+                                    icon="icon-edit"
+                                    rel="cq-commerce-products-edit-activator"
+                                    target=".cq-commerce-products-childpages"
+                                    text="View Product Data"
+                                    title="View Product Data"
+                                    variant="[quiet,secondary,actionBar]">
+                                    <data
+                                        jcr:primaryType="nt:unstructured"
+                                        cookiePath.url="/"
+                                        href.uritemplate="/bin/wcmcommand?cmd=open&amp;_charset_=utf-8&amp;path={item}"/>
+                                </open>
+                                <viewproperties
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/collection/action"
+                                    action="foundation.link"
+                                    activeSelectionCount="single"
+                                    icon="icon-info-circle"
+                                    rel="foundation-admin-properties-activator"
+                                    target=".cq-commerce-products-childpages"
+                                    text="View Product Data"
+                                    title="View Product Data"
+                                    variant="[quiet,secondary,actionBar]">
+                                    <data
+                                        jcr:primaryType="nt:unstructured"
+                                        href.uritemplate="/libs/commerce/gui/content/products/properties.html{+item}"/>
+                                </viewproperties>
+                                <addtocollection
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/collection/action"
+                                    action="foundation.link"
+                                    activeSelectionCount="multiple"
+                                    icon="icon-collection-add-to"
+                                    rel="cq-damadmin-admin-actions-add-to-collection-activator"
+                                    target=".cq-commerce-products-childpages"
+                                    text="Add to Collection"
+                                    title="Add To Collection"
+                                    variant="[quiet,secondary,actionBar]">
+                                    <data
+                                        jcr:primaryType="nt:unstructured"
+                                        href.uritemplate="#"/>
+                                </addtocollection>
+                                <viewfolderproperties
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/collection/action"
+                                    action="foundation.link"
+                                    activeSelectionCount="single"
+                                    icon="icon-info-circle"
+                                    rel="cq-commerce-products-folderproperties-activator"
+                                    target=".cq-commerce-products-childpages"
+                                    text="Folder Properties"
+                                    title="Folder Properties"
+                                    variant="[quiet,secondary,actionBar]">
+                                    <data
+                                        jcr:primaryType="nt:unstructured"
+                                        href.uritemplate="/libs/commerce/gui/content/products/folderproperties.html{+item}"/>
+                                </viewfolderproperties>
+                                <publish
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/endor/actionbar/pulldownlink"
+                                    class="foundation-collection-action"
+                                    foundation-collection-action="\{&quot;target&quot;: &quot;.cq-commerce-products-childpages&quot;, &quot;activeSelectionCount&quot;: &quot;multiple&quot;}"
+                                    icon="icon-globe"
+                                    rel="cq-commerce-products-publish-activator"
+                                    text="Publish"
+                                    title="Publish">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <now
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/collection/actionlink"
+                                            action="cq.wcm.publish"
+                                            target=".cq-commerce-products-childpages"
+                                            text="Publish">
+                                            <data
+                                                jcr:primaryType="nt:unstructured"
+                                                referenceSrc.url="/libs/wcm/core/content/reference.json?_charset_=utf-8{&amp;path*}"
+                                                wizardSrc.uritemplate="/libs/wcm/core/content/sites/publishpagewizard.html?_charset_=utf-8{&amp;item*}"/>
+                                        </now>
+                                        <later
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/collection/actionlink"
+                                            action="foundation.link"
+                                            target=".cq-commerce-products-childpages"
+                                            text="Publish later">
+                                            <data
+                                                jcr:primaryType="nt:unstructured"
+                                                href.uritemplate="/libs/wcm/core/content/sites/publishpagewizard.html?later&amp;_charset_=utf-8{&amp;item*}"/>
+                                        </later>
+                                    </items>
+                                </publish>
+                                <unpublish
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/endor/actionbar/pulldownlink"
+                                    class="foundation-collection-action"
+                                    foundation-collection-action="\{&quot;target&quot;: &quot;.cq-commerce-products-childpages&quot;, &quot;activeSelectionCount&quot;: &quot;multiple&quot;}"
+                                    icon="icon-unpublish"
+                                    rel="cq-commerce-products-unpublish-activator"
+                                    text="Unpublish"
+                                    title="Unpublish">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <now
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/collection/actionlink"
+                                            action="cq.wcm.unpublish"
+                                            target=".cq-commerce-products-childpages"
+                                            text="Unpublish"/>
+                                        <later
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/collection/actionlink"
+                                            action="foundation.link"
+                                            target=".cq-commerce-products-childpages"
+                                            text="Unpublish later">
+                                            <data
+                                                jcr:primaryType="nt:unstructured"
+                                                href.uritemplate="/libs/wcm/core/content/sites/unpublishpagewizard.html?later&amp;_charset_=utf-8{&amp;item*}"/>
+                                        </later>
+                                    </items>
+                                </unpublish>
+                                <deleteproduct
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/collection/action"
+                                    action="cq.wcm.delete"
+                                    activeSelectionCount="multiple"
+                                    icon="icon-delete"
+                                    rel="cq-commerce-products-delete-activator"
+                                    target=".cq-commerce-products-childpages"
+                                    text="Delete"
+                                    title="Delete"
+                                    variant="[quiet,secondary,actionBar]"/>
+                                <togglelayout
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/cyclebuttons"
+                                    active="${state[&quot;cq.commerce.products.childpages.layoutId&quot;].string}">
+                                    <layoutConfig
+                                        jcr:primaryType="nt:unstructured"
+                                        align="right"/>
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <card
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/endor/actionbar/button"
+                                            class="foundation-layout-control"
+                                            icon="icon-view-card"
+                                            text="Card View"
+                                            title="Card View">
+                                            <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                foundation-layout-control="\{&quot;action&quot;: &quot;switch&quot;, &quot;target&quot;: &quot;.cq-commerce-products-childpages&quot;, &quot;config&quot;: {&quot;name&quot;: &quot;foundation-layout-card&quot;, &quot;limit&quot;: 20, &quot;stateId&quot;: &quot;cq.commerce.products.childpages&quot;, &quot;layoutId&quot;: &quot;card&quot;, &quot;reload&quot;: &quot;${granite:uritemplate(&quot;/libs/commerce/gui/content/products/jcr:content/body/content/content/items/childpages{.offset,limit}.html{+id}&quot;)}&quot;}}"/>
+                                        </card>
+                                        <list
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/endor/actionbar/button"
+                                            class="foundation-layout-control"
+                                            icon="icon-view-list"
+                                            text="List View"
+                                            title="List View">
+                                            <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                foundation-layout-control="\{&quot;action&quot;: &quot;switch&quot;, &quot;target&quot;: &quot;.cq-commerce-products-childpages&quot;, &quot;config&quot;: {&quot;name&quot;: &quot;foundation-layout-list&quot;, &quot;limit&quot;: 40, &quot;stateId&quot;: &quot;cq.commerce.products.childpages&quot;, &quot;layoutId&quot;: &quot;list&quot;, &quot;reload&quot;: &quot;${granite:uritemplate(&quot;/libs/commerce/gui/content/products/jcr:content/body/content/content/items/childpages{.offset,limit}.html{+id}&quot;)}&quot;}}"/>
+                                        </list>
+                                        <columns
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/endor/actionbar/button"
+                                            class="foundation-layout-control"
+                                            icon="icon-view-column"
+                                            text="Column View"
+                                            title="Column View">
+                                            <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                foundation-layout-control="\{&quot;action&quot;: &quot;switch&quot;, &quot;target&quot;: &quot;.cq-commerce-products-childpages&quot;, &quot;config&quot;: {&quot;name&quot;: &quot;foundation-layout-columns&quot;, &quot;limit&quot;: 40, &quot;stateId&quot;: &quot;cq.commerce.products.childpages&quot;, &quot;layoutId&quot;: &quot;columns&quot;, &quot;reload&quot;: &quot;${granite:uritemplate(&quot;/libs/commerce/gui/content/products/jcr:content/body/content/content/items/childpages{.offset,limit}.html{+id}&quot;)}&quot;}}"/>
+                                        </columns>
+                                    </items>
+                                </togglelayout>
+                                <selectionstatus
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/endor/actionbar/selectionstatus"
+                                    target=".cq-commerce-products-childpages">
+                                    <layoutConfig
+                                        jcr:primaryType="nt:unstructured"
+                                        align="right"/>
+                                </selectionstatus>
+                            </items>
+                        </selection>
+                    </items>
+                </header>
+                <content
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/container">
+                    <items jcr:primaryType="nt:unstructured">
+                        <childpages
+                            granite:rel="cq-commerce-products-childpages"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/foundation/container">
+                            <granite:data
+                                jcr:primaryType="nt:unstructured"
+                                foundation-mode-group="cq-commerce-products-childpages"/>
+                            <layout
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/layouts/multilayouts"
+                                layout="${state[&quot;cq.commerce.products.childpages.layoutId&quot;].string}">
+                                <layouts jcr:primaryType="nt:unstructured">
+                                    <card
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/layouts/cardview"
+                                        layoutId="card"
+                                        limit="{Long}20"
+                                        maximized="{Boolean}true"
+                                        path="${requestPathInfo.suffix}"
+                                        selectionMode="${state[&quot;cq.commerce.products.childpages.selectionMode&quot;].boolean}"
+                                        src="/libs/commerce/gui/content/products/jcr:content/body/content/content/items/childpages{.offset,limit}.html{+id}"
+                                        stateId="cq.commerce.products.childpages">
+                                        <headers
+                                            jcr:primaryType="nt:unstructured"
+                                            class="card-asset"
+                                            selectable="{Boolean}true">
+                                            <main
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="commerce/gui/components/admin/common/header"
+                                                class="main"
+                                                sort-selector=".label h4"
+                                                title="TITLE"/>
+                                            <sku
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="commerce/gui/components/admin/common/header"
+                                                class="sku"
+                                                sort-selector=".label .sku"
+                                                title="SKU"/>
+                                            <modified
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="commerce/gui/components/admin/common/header"
+                                                class="modified"
+                                                sort-attribute="data-timestamp"
+                                                sort-selector=".label .modified .date"
+                                                sort-type="numeric"
+                                                title="MODIFIED"/>
+                                            <published
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="commerce/gui/components/admin/common/header"
+                                                class="published"
+                                                sort-attribute="data-timestamp"
+                                                sort-selector=".label .published .date"
+                                                sort-type="numeric"
+                                                title="PUBLISHED"/>
+                                        </headers>
+                                    </card>
+                                    <list
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/layouts/listview"
+                                        layoutId="list"
+                                        limit="{Long}40"
+                                        maximized="{Boolean}true"
+                                        path="${requestPathInfo.suffix}"
+                                        src="/libs/commerce/gui/content/products/jcr:content/body/content/content/items/childpages{.offset,limit}.html{+id}"
+                                        stateId="cq.commerce.products.childpages">
+                                        <headers
+                                            jcr:primaryType="nt:unstructured"
+                                            class="card-asset"
+                                            selectable="{Boolean}true">
+                                            <main
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="commerce/gui/components/admin/common/header"
+                                                class="main"
+                                                sort-selector=".label h4"
+                                                title="TITLE"/>
+                                            <sku
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="commerce/gui/components/admin/common/header"
+                                                class="sku"
+                                                sort-selector=".label .sku"
+                                                title="SKU"/>
+                                            <modified
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="commerce/gui/components/admin/common/header"
+                                                class="modified"
+                                                sort-attribute="data-timestamp"
+                                                sort-selector=".label .modified .date"
+                                                sort-type="numeric"
+                                                title="MODIFIED"/>
+                                            <published
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="commerce/gui/components/admin/common/header"
+                                                class="published"
+                                                sort-attribute="data-timestamp"
+                                                sort-selector=".label .published .date"
+                                                sort-type="numeric"
+                                                title="PUBLISHED"/>
+                                        </headers>
+                                    </list>
+                                    <columns
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/layouts/columnview"
+                                        itemprop="item"
+                                        itemResourceType="commerce/gui/components/admin/products/childcolumnitem"
+                                        layoutId="columns"
+                                        limit="{Long}40"
+                                        loadParents="{Boolean}true"
+                                        multiselect="{Boolean}true"
+                                        path="${requestPathInfo.suffix}"
+                                        rootPath="/etc/commerce/products"
+                                        src="/libs/commerce/gui/content/products/column{.offset,limit}.html{+path}"
+                                        stateId="cq.commerce.products.childpages">
+                                        <preview
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="commerce/gui/components/admin/products/childcolumnpreview"
+                                            path="${requestPathInfo.suffix}"/>
+                                    </columns>
+                                </layouts>
+                                <empty
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="cq/gui/components/common/wcm/layouts/emptychildpages">
+                                    <actionspopover
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/container"
+                                        id="empty-actions-popover">
+                                        <layout
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/layouts/popover"/>
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <list
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/container">
+                                                <layout
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/layouts/list"/>
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <createproduct
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/foundation/hyperlink"
+                                                        href="/etc/vans/models/createproductwizard.html${requestPathInfo.suffix}"
+                                                        rel="cq-commerce-products-createproduct-activator"
+                                                        text="Create Product">
+                                                        <rendercondition
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/foundation/renderconditions/privilege"
+                                                            path="${requestPathInfo.suffix}"
+                                                            privileges="jcr:addChildNodes"/>
+                                                    </createproduct>
+                                                    <createvariation
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/foundation/hyperlink"
+                                                        href="/libs/commerce/gui/content/products/createvariationwizard.html${requestPathInfo.suffix}"
+                                                        rel="cq-commerce-products-createvariation-activator"
+                                                        text="Create Variation">
+                                                        <rendercondition
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/foundation/renderconditions/privilege"
+                                                            path="${requestPathInfo.suffix}"
+                                                            privileges="jcr:addChildNodes"/>
+                                                    </createvariation>
+                                                    <createfolder
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/foundation/hyperlink"
+                                                        href="#create-folder-modal"
+                                                        rel="cq-commerce-products-createfolder-activator"
+                                                        text="Create Folder">
+                                                        <granite:data
+                                                            jcr:primaryType="nt:unstructured"
+                                                            toggle="modal"/>
+                                                        <rendercondition
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/foundation/renderconditions/privilege"
+                                                            path="${requestPathInfo.suffix}"
+                                                            privileges="jcr:addChildNodes"/>
+                                                    </createfolder>
+                                                </items>
+                                            </list>
+                                        </items>
+                                    </actionspopover>
+                                    <actions
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/endor/actionbar/hyperlink"
+                                        hideText="{Boolean}true"
+                                        href="#empty-actions-popover"
+                                        icon="icon-add"
+                                        text="Create"
+                                        title="Create"
+                                        toggle="popover"/>
+                                </empty>
+                            </layout>
+                            <datasource
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="commerce/gui/components/admin/products/childdatasource"
+                                itemResourceType="commerce/gui/components/admin/products/childcard"
+                                limit="${empty requestPathInfo.selectors[1] ? &quot;20&quot; : requestPathInfo.selectors[1]}"
+                                offset="${requestPathInfo.selectors[0]}"
+                                path="${requestPathInfo.suffix}"/>
+                        </childpages>
+                        <createfoldermodal
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/foundation/include"
+                            path="/libs/commerce/gui/content/common/createfoldermodal/content"/>
+                    </items>
+                </content>
+            </content>
+            <breadcrumbs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="commerce/gui/components/admin/common/endor/breadcrumbs"
+                baseUrl="/etc/vans/components.html"
+                contentPath="${requestPathInfo.suffix}"
+                depthAdjustment="{Long}-1"
+                pageTitleTemplate="AEM Products | {{title}}"
+                rootPageTitle="AEM Products"
+                rootPath="/etc/commerce/products/vans/models"
+                rootTitle="Product Data"
+                src="/etc/vans/components.html{+id}"
+                target=".cq-commerce-products-childpages"/>
+        </body>
+    </jcr:content>
+</jcr:root>
