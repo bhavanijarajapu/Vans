@@ -1,0 +1,53 @@
+#divInfoOverlay {
+    display: none;
+    z-index: 9001;
+    opacity: 0.8;
+    position: absolute;
+    margin-top: 30px;
+    background-color: #ffffff;
+    height: 70px;
+    width: 234px;
+    margin-left: -8px;
+    border: 1px solid #e2e2e2;
+}
+
+#divImagePreview {
+    display: none;
+    z-index: 9000;
+}
+
+#divChangeBranding {
+    display: none;
+    margin-bottom: 10px;
+    margin-top: 8px;
+}
+
+#pImgUploadPreviewFname {
+    font-weight: bold;
+}
+
+.truncFname {
+    width: 220px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#divChangeBranding:hover {
+    cursor: pointer;
+}
+
+.invalid-asset {
+    border: solid 2px red;
+}
+
+.invalid-asset {
+    border: solid 2px red;
+}
+
+.previewSwatch, .previewSwatch img {
+    display: inline-block;
+    width: 3rem;
+    height: 3rem;
+    max-width: none;
+}

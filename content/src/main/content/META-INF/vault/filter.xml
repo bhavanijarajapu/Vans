@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workspaceFilter version="1.0">
-    <filter root="/apps/vans"/>
+    <filter root="/apps/vf-innovation"/>
+    <filter root="/apps/cq/core/content/nav/configurator"/>
+    <filter root="/etc/scaffolding/vf-innovation"/>
+    <filter root="/etc/vf-innovation/vans/swatches"/>
+    <filter root="/etc/vf-innovation/vans/recipes"/>
+    <filter root="/etc/clientlibs/vf-innovation"/>
+    <filter root="/etc/workflow/launcher/config/renditionCreator"/>
+    <filter root="/etc/workflow/launcher/config/deleteAsset"/>
+    <filter root="/etc/workflow/models/deleteassets"/>
+    <filter root="/etc/commerce/products/vf-innovation/vans/en_us" mode="update" />
 </workspaceFilter>

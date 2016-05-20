@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
+          jcr:primaryType="nt:unstructured">
+    <configurator
+            jcr:primaryType="nt:unstructured"
+            jcr:title="Custom Configurator"
+            sling:orderBefore="apps"
+            href="#"
+            id="custom-configurator">
+        <vf_brand
+                jcr:mixinTypes="[rep:AccessControllable]"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Vans  Configuration"
+                id="cq-commerce-vans">
+            <en_us
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="English, US"
+                    id="en_us"
+                    href="#">
+                <swatches
+                        jcr:description="Manage Vans Swatches."
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Swatches"
+                        href="/etc/vf-innovation/vans/swatches.html/etc/commerce/products/vf-innovation/vans/en_us/swatches"
+                        id="cq-commerce-vans-swatches"/>
+                <models
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Models"
+                        href="#"
+                        id="cq-commerce-vans-models"/>
+                <recipes
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Recipes"
+                        href="#"
+                        id="cq-commerce-vans-recipes"/>
+            </en_us>
+        </vf_brand>
+        <NFConfiguration
+                jcr:mixinTypes="[rep:AccessControllable]"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="North Face Configurations"
+                id="cq-commerce-other"/>
+    </configurator>
+</jcr:root>

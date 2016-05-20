@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:WorkflowLauncher"
+    condition=""
+    description=""
+    enabled="{Boolean}true"
+    eventType="{Long}2"
+    excludeList=""
+    glob="/etc/commerce/products/vf-innovation/vans/en_us/swatches"
+    nodetype="Any Node Type"
+    runModes="author"
+    workflow="/etc/workflow/models/deleteassets/jcr:content/model"/>

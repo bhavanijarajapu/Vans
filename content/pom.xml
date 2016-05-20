@@ -6,8 +6,8 @@
     <!-- P A R E N T P R O J E C T D E S C R I P T I O N -->
     <!-- ====================================================================== -->
     <parent>
-        <groupId>groupid</groupId>
-        <artifactId>vans</artifactId>
+        <groupId>vf-innovation</groupId>
+        <artifactId>vf-innovation</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
@@ -15,14 +15,14 @@
     <!-- P R O J E C T D E S C R I P T I O N -->
     <!-- ====================================================================== -->
 
-    <artifactId>vans-content</artifactId>
+    <artifactId>vf-innovation-content</artifactId>
     <packaging>content-package</packaging>
-    <name>vans Package</name>
+    <name>vf-innovation Package</name>
 
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>vans-bundle</artifactId>
+            <artifactId>vf-innovation-bundle</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
@@ -52,13 +52,13 @@
                 <artifactId>content-package-maven-plugin</artifactId>
                 <extensions>true</extensions>
                 <configuration>
-                    <group>Vans</group>
+                    <group>VF-Innovation</group>
                     <filterSource>src/main/content/META-INF/vault/filter.xml</filterSource>
                     <embeddeds>
                         <embedded>
                             <groupId>${project.groupId}</groupId>
-                            <artifactId>vans-bundle</artifactId>
-                            <target>/apps/vans/install</target>
+                            <artifactId>vf-innovation-bundle</artifactId>
+                            <target>/apps/vf-innovation/install</target>
                         </embedded>
                     </embeddeds>
                     <targetURL>http://${crx.host}:${crx.port}/crx/packmgr/service.jsp</targetURL>

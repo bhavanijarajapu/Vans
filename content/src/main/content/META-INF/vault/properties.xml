@@ -6,8 +6,8 @@
 <entry key="version">1.0-SNAPSHOT</entry>
 <entry key="dependencies" />
 <entry key="packageFormatVersion">2</entry>
-<entry key="description">vans Package</entry>
-<entry key="group">Vans</entry>
-<entry key="name">vans-content</entry>
-<entry key="path">/etc/packages/Vans/vans-content-1.0-SNAPSHOT.zip</entry>
+<entry key="description">vf-innovation Package</entry>
+<entry key="group">VF-Innovation</entry>
+<entry key="name">vf-innovation-content</entry>
+<entry key="path">/etc/packages/VF-Innovation/vf-innovation-content-1.0-SNAPSHOT.zip</entry>
 </properties>

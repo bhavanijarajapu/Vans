@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="cq:Page">
+    <jcr:content
+            cq:targetPath="/etc/commerce/products/vf-innovation/vans/en_us/swatches"
+            jcr:description="This form is used to store Swatches Data for VANS"
+            jcr:primaryType="cq:PageContent"
+            jcr:title="Swatches"
+            sling:resourceType="wcm/scaffolding/components/scaffolding">
+        <cq:dialog
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Vans Swatches"
+                sling:resourceType="cq/gui/components/authoring/dialog">
+            <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+                    type="nav"/>
+            <content
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <tabs
+                            jcr:primaryType="nt:unstructured"
+                            class="cq-dialog-dropdown-showhide-basic"
+                            sling:resourceType="granite/ui/components/foundation/container">
+                        <layout
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+                                type="nav"/>
+                        <items jcr:primaryType="nt:unstructured">
+                            <basic
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="Basic Information"
+                                    sling:resourceType="granite/ui/components/foundation/section">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column-set
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/container">
+                                        <layout
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                                                margin="false"/>
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <col1
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <uniqueFormId
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                                            fieldLabel="Unique Id *"
+                                                            name="./jcr:title"
+                                                            class="cq-dialog-swatch-uniqueId"
+                                                            renderReadOnly="{Boolean}true"
+                                                            required="{Boolean}true"
+                                                            validation="vans.uniqueId"/>
+                                                    <swatchName
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                            fieldLabel="Swatch Name *"
+                                                            emptyText="Swatch Name"
+                                                            required="{Boolean}true"
+                                                            name="./swatchName"
+                                                            renderReadOnly="{Boolean}true"
+                                                            validation="vans.swatchName"/>
+                                                    <hexValue
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                            class="cq-dialog-dropdown-showhide-hexvalue"
+                                                            name="./hexValue"
+                                                            emptyText="HEX Value"
+                                                            fieldLabel="Hex Value *"
+                                                            validation="vf-innovation.hexValue"
+                                                            renderReadOnly="{Boolean}true"/>
+                                                    <materialType
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/foundation/form/dropdown"
+                                                            class="cq-dialog-dropdown-showhide-material"
+                                                            fieldLabel="Material Type *"
+                                                            name="./materialType"
+                                                            renderReadOnly="{Boolean}true"
+                                                            required="{Boolean}true">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <fabric
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    text="Fabric"
+                                                                    value="fabric"/>
+                                                            <rubber
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    text="Rubber"
+                                                                    value="rubber"/>
+                                                            <metal
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    text="Metal"
+                                                                    value="metal"/>
+                                                        </items>
+                                                    </materialType>
+                                                    <materialGroup
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/foundation/form/dropdown"
+                                                            class="cq-dialog-dropdown-showhide-mat-group"
+                                                            fieldLabel="Material Group *"
+                                                            name="./materialGroup"
+                                                            renderReadOnly="{Boolean}true"
+                                                            required="{Boolean}true">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <canvas
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    text="Canvas"
+                                                                    value="canvas"/>
+                                                            <denim
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    text="Denim"
+                                                                    value="denim"/>
+                                                            <leather
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    text="Leather"
+                                                                    value="leather"/>
+                                                            <suede
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    text="Suede"
+                                                                    value="suede"/>
+                                                        </items>
+                                                    </materialGroup>
+                                                    <addedCost
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/foundation/form/numberfield"
+                                                            name="./addedCost"
+                                                            class="cq-dialog-dropdown-showhide-addedcost"
+                                                            fieldLabel="Added Cost *"
+                                                            min="0"
+                                                            validation="vf-innovation.addedCost"
+                                                            renderReadOnly="{Boolean}true"/>
+                                                </items>
+                                            </col1>
+                                            <col2
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/container"
+                                                    class="cq-dialog-dropdown-showhide-col2">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <swatchType
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/foundation/form/dropdown"
+                                                            class="cq-dialog-dropdown-showhide"
+                                                            fieldLabel="Swatch Type *"
+                                                            name="./swatchType"
+                                                            validation="vf-innovation.swatchType"
+                                                            renderReadOnly="{Boolean}true"
+                                                            required="{Boolean}true">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <solid
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    text="Solid"
+                                                                    value="solid"/>
+                                                            <material
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    text="Material"
+                                                                    value="material"/>
+                                                            <pattern
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    text="Pattern"
+                                                                    value="pattern"/>
+                                                        </items>
+                                                    </swatchType>
+
+                                                    <storeId
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="cq/gui/components/common/tagspicker"
+                                                            rootPath="/etc/tags/vans/stores"
+                                                            fieldLabel="Select Stores *"
+                                                            mode="contains"
+                                                            emptyText="Store ID"
+                                                            name="./storesId"
+                                                            validation="vf-innovation.storeId"
+                                                            renderReadOnly="{Boolean}true"/>
+                                                    <catalogId
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="cq/gui/components/common/tagspicker"
+                                                            rootPath="/etc/tags/vans/catalogs"
+                                                            fieldLabel="Select Catalog ID *"
+                                                            mode="contains"
+                                                            emptyText="Catalog ID"
+                                                            name="./catalogId"
+                                                            validation="vf-innovation.catalogId"
+                                                            renderReadOnly="{Boolean}true"/>
+
+                                                </items>
+                                            </col2>
+                                        </items>
+                                    </column-set>
+                                </items>
+                            </basic>
+                            <assets
+                                    jcr:primaryType="nt:unstructured"
+                                    class="cq-dialog-dropdown-showhide-assets"
+                                    jcr:title="Assets"
+                                    sling:resourceType="granite/ui/components/foundation/section">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column-set
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/container">
+                                        <layout
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                                                margin="false"/>
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <col1
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <pageThumbnail
+                                                            jcr:primaryType="nt:unstructured"
+                                                            title="UI Swatch *"
+                                                            name="./image/fileReference"
+                                                            refrencePath="/etc/vf-innovation/vans/images/swatch/en_us"
+                                                            uniqueFormId="cq-dialog-vans-unique-form-id"
+                                                                validation="vf-innovation.pageThumbnail"
+                                                            sling:resourceType="vf-innovation/components/global/imageUpload"/>
+                                                    <pageThumbnailResourceType
+                                                            jcr:primaryType="nt:unstructured"
+                                                            name="./image/sling:resourceType"
+                                                            sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                                            value="commerce/components/product/image"/>
+                                                    <diffuseAsset
+                                                            jcr:primaryType="nt:unstructured"
+                                                            title="Diffuse 3D Asset *"
+                                                            name="./diffuse"
+                                                            validation="vf-innovation.diffuseAsset"
+                                                            refrencePath="/etc/vf-innovation/vans/images/swatch/en_us"
+                                                            uniqueFormId="cq-dialog-vans-unique-form-id"
+                                                            sling:resourceType="vf-innovation/components/global/imageUpload"/>
+                                                    <normalAsset
+                                                            jcr:primaryType="nt:unstructured"
+                                                            title="Normal Asset"
+                                                            name="./normal"
+                                                            refrencePath="/etc/vf-innovation/vans/images/swatch/en_us"
+                                                            uniqueFormId="cq-dialog-vans-unique-form-id"
+                                                            sling:resourceType="vf-innovation/components/global/imageUpload"/>
+                                                </items>
+                                            </col1>
+                                            <col2
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/container"
+                                                    class="cq-dialog-dropdown-showhide-col2">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <specularAsset
+                                                            jcr:primaryType="nt:unstructured"
+                                                            title="Specular Asset"
+                                                            name="./specular"
+                                                            refrencePath="/etc/vf-innovation/vans/images/swatch/en_us"
+                                                            uniqueFormId="cq-dialog-vans-unique-form-id"
+                                                            sling:resourceType="vf-innovation/components/global/imageUpload"/>
+                                                    <alphaAsset
+                                                            jcr:primaryType="nt:unstructured"
+                                                            title="Alpha Asset"
+                                                            name="./alpha"
+                                                            refrencePath="/etc/vf-innovation/vans/images/swatch/en_us"
+                                                            uniqueFormId="cq-dialog-vans-unique-form-id"
+                                                            sling:resourceType="vf-innovation/components/global/imageUpload"/>
+                                                </items>
+                                            </col2>
+                                        </items>
+                                    </column-set>
+                                </items>
+                            </assets>
+                        </items>
+                    </tabs>
+                </items>
+            </content>
+        </cq:dialog>
+    </jcr:content>
+</jcr:root>

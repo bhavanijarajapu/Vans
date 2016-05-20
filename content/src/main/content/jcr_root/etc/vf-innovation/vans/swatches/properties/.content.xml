@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        jcr:primaryType="nt:unstructured"
+        jcr:title="AEM Products | Swatches"
+        sling:resourceType="granite/ui/components/foundation/page">
+        <head jcr:primaryType="nt:unstructured">
+            <viewport
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/admin/page/viewport"/>
+            <meta
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/meta"
+                content="chrome=1"
+                name="X-UA-Compatible"/>
+            <title
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="commerce/gui/components/admin/common/pagetitle"
+                rootPath="/etc/commerce/products/vf-innovation/vans"/>
+            <favicon
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/page/favicon"/>
+            <clientlibs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/includeclientlibs"
+                categories="[coralui2,granite.ui.foundation,granite.ui.foundation.admin,commerce.gui.products.admin,commerce.gui.orders.admin,cq.social.console.hbs.imageupload,cq.authoring.dialog]"/>
+        </head>
+        <body
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/page/body">
+            <layout
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/endor/layouts/page"/>
+            <rail
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/endor/navcolumns"
+                currentId="cq-commerce-vans-swatches"
+                srcPath="cq/core/content/nav"/>
+            <breadcrumbs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="commerce/gui/components/admin/common/endor/breadcrumbs"
+                baseUrl="/etc/vf-innovation/vans/swatches.html"
+                contentPath="${empty param.item ? requestPathInfo.suffix : param.item}"
+                rootPath="/etc/commerce/products/vf-innovation/vans/en_us/swatches"/>
+            <title
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="commerce/gui/components/admin/common/endor/title"
+                text="Swatches"/>
+            <header
+                jcr:primaryType="nt:unstructured"
+                srcPath="/mnt/overlay/cq/core/content/header"/>
+            <content
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/container"
+                class="cq-commerce-order-properties">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/endor/layouts/content"/>
+                <header
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/container">
+                    <layout
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/layouts/mode"
+                        group="cq-commerce-products-properties"
+                        mode="${requestPathInfo.selectors[0] == &quot;edit&quot; ? &quot;edit&quot; : &quot;default&quot;}"/>
+                    <items jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/foundation/navigation">
+                            <layout
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/endor/layouts/actionbar"/>
+                            <items jcr:primaryType="nt:unstructured">
+                                <edit
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/endor/actionbar/button"
+                                    class="foundation-mode-change swatch-edit"
+                                    foundation-mode-group="cq-commerce-products-properties"
+                                    foundation-mode-value="edit"
+                                    icon="icon-edit"
+                                    text="Edit"
+                                    title="Edit">
+                                    <rendercondition
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/renderconditions/privilege"
+                                        path="${empty param.item ? requestPathInfo.suffix : param.item}"
+                                        privileges="jcr:modifyProperties"/>
+                                </edit>
+                            </items>
+                        </default>
+                        <edit
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/foundation/navigation">
+                            <layout
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/endor/layouts/actionbar"/>
+                            <items jcr:primaryType="nt:unstructured">
+                                <cancel
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/endor/actionbar/button"
+                                    class="foundation-mode-change swatch-cancel"
+                                    formId="propertiesform"
+                                    foundation-mode-group="cq-commerce-products-properties"
+                                    foundation-mode-value="default"
+                                    icon="icon-close"
+                                    text="Cancel"
+                                    title="Cancel"
+                                    type="reset"/>
+                                <done
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/endor/actionbar/button"
+                                    formId="propertiesform"
+                                    id="cq-social-edit-submit"
+                                    class="cq-social-edit-submit"
+                                    icon="icon-check"
+                                    text="Done"
+                                    title="Done"
+                                    type="submit"/>
+                            </items>
+                        </edit>
+                    </items>
+                </header>
+                <content
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="commerce/gui/components/admin/products/properties"
+                    class="foundation-form content-container"
+                    foundation-form-ajax="{Boolean}true"
+                    foundation-form-output-replace=".foundation-content"
+                    foundation-mode-group="cq-commerce-products-properties"
+                    id="propertiesform"
+                    item="${empty param.item ? requestPathInfo.suffix : param.item}"
+                    redirectBaseUrl="/etc/vf-innovation/vans/swatches/properties.html"
+                    rel="cq-commerce-orders-createorder">
+                    <layout
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/layouts/form"
+                        mode="default"/>
+                    <items jcr:primaryType="nt:unstructured">
+                        <columns
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/foundation/container">
+                            <layout
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                                margin="{Boolean}false"/>
+                            <items jcr:primaryType="nt:unstructured">
+                                <scaffold
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="commerce/gui/components/admin/common/includescaffold"/>
+                            </items>
+                        </columns>
+                    </items>
+                </content>
+            </content>
+        </body>
+    </jcr:content>
+</jcr:root>
